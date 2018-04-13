@@ -16,20 +16,20 @@ const style = {
 };
 
 const ItemCard = props => {
-  let items = props.itemsData;
-  //   console.log(items);
+  let itemCards = props.itemsData;
+  //   console.log(itemCards);
   return (
     <div>
       <Card>
         <CardMedia>
-          <img src={items.imageurl} />
+          <img src={itemCards.imageurl} />
         </CardMedia>
-        <CardTitle title="Red Academy" subtitle={items.tags} />
+        <CardTitle title="Red Academy" subtitle={itemCards.tags} />
         <CardText>
-          {/* {items.description.map((item, index) => {
+          {/* {itemCards.description.map((item, index) => {
             return <span>{(index ? ", " : "") + item}</span>;
           })} */}
-          {items.description}
+          {itemCards.description}
         </CardText>
         <RaisedButton label="Borrow" style={style} />
       </Card>
