@@ -10,6 +10,7 @@ import {
 import FlatButton from "material-ui/FlatButton";
 import RaisedButton from "material-ui/RaisedButton";
 import "./styles.css";
+import PropTypes from "prop-types";
 
 const style = {
   margin: 12
@@ -37,6 +38,8 @@ const ItemCard = props => {
   );
 };
 
-//use material ui
+ItemCard.propTypes = {
+  itemsData: PropTypes.object.isRequired
+};
 
 export default ItemCard;

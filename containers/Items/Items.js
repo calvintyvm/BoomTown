@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import RaisedButton from "material-ui/RaisedButton";
+import React from "react";
+import PropTypes from "prop-types";
+
 import ItemCardList from "../../components/ItemCardList";
 
 const Items = props => {
@@ -11,3 +12,7 @@ const Items = props => {
 };
 
 export default Items;
+
+Items.propTypes = {
+  itemsData: PropTypes.array.isRequired
+};

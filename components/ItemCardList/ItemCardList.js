@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import ItemCard from "../../components/ItemCard";
+import PropTypes from "prop-types";
 
 const ItemCardList = props => {
   return (
@@ -14,3 +15,7 @@ const ItemCardList = props => {
 };
 
 export default ItemCardList;
+
+ItemCardList.propTypes = {
+  itemsData: PropTypes.array.isRequired
+};

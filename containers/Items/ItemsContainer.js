@@ -36,7 +36,7 @@ class ItemsContainer extends Component {
         itemsArray = objects[1];
         itemsArray.map((item, index) => {
           userArray.map((user, index) => {
-            if (user.id == item.itemowner) {
+            if (user.id === item.itemowner) {
               item.itemowner = user;
             }
           });
