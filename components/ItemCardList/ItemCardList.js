@@ -4,7 +4,11 @@ import ItemCard from "../../components/ItemCard";
 const ItemCardList = props => {
   return (
     <ul>
-      <li>Hello</li>
+      {props.itemsData.map((items, index) => (
+        <li>
+          <ItemCard />
+        </li>
+      ))}
     </ul>
   );
 };
