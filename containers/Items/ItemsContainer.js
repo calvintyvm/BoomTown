@@ -5,13 +5,25 @@ import Items from "./Items";
 const userUrl = "http://localhost:3000/users";
 const itemsUrl = "http://localhost:3000/items";
 
+//ASK SID
+// shuffleArray = () => {
+//   let random = this.state.itemsData.sort(()=> {
+//     return 0.5 - Math.random();
+//   });
+//   this.setState({
+//     itemsData: random
+//   });
+// };
+
 class ItemsContainer extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       isLoading: false,
-      itemsData: []
+      itemsData: [],
+      random: 0
     };
+    // this.shuffleArray = this.shuffleArray.bind(this);
   }
   componentDidMount() {
     const urls = [userUrl, itemsUrl];
@@ -32,7 +44,6 @@ class ItemsContainer extends Component {
         this.setState({
           itemsData: itemsArray
         });
-        console.log(this.state.itemsData);
       })
       .then(() => this.setState({ isLoading: false, itemsData: itemsArray }))
       .catch(error => console.log(error));

@@ -4,9 +4,9 @@ import ItemCard from "../../components/ItemCard";
 const ItemCardList = props => {
   return (
     <ul>
-      {props.itemsData.map((items, index) => (
-        <li>
-          <ItemCard />
+      {props.itemsData.map((item, index) => (
+        <li key={index}>
+          <ItemCard itemsData={item} />
         </li>
       ))}
     </ul>

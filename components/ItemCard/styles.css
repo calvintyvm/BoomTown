@@ -1,0 +1,15 @@
+li{
+    height:100%;
+    width:28%;
+    margin-left:5%;
+    margin-top:5%;
+}
+ul{
+    display:flex;
+    flex-wrap:wrap;
+    width:100%;
+
+}
+button{
+    margin-left:5%;
+}
