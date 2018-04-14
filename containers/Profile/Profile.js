@@ -1,6 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ItemCard from "../../components/ItemCard";
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardTitle,
+  CardText
+} from "material-ui/Card";
+import Gravatar from "react-gravatar";
 
 const Profile = props => {
   let items = props.itemsData;
@@ -11,14 +20,19 @@ const Profile = props => {
   //.length to check how many
   return (
     <div>
-      <h1>
-        {items.map((item, index) => {
-          profileArray = item.itemowner;
-        })}
-        {profileArray.fullname}
-        {profileArray.bio}
-        {items.length} items Shared
-      </h1>
+      {items.map((item, index) => {
+        profileArray = item.itemowner;
+      })}
+      <Card>
+        {/* <Link to={`profile/${item.itemowner.id}`}> */}
+        <CardHeader
+          title={profileArray.fullname}
+          subtitle={profileArray.bio}
+          avatar={<Gravatar email={profileArray.email} />}
+        />
+        <CardText>{items.length} items Shared</CardText>
+        {/* </Link> */}
+      </Card>
     </div>
   );
 };

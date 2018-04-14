@@ -33,7 +33,7 @@ const ItemCard = props => {
         <CardMedia>
           <img src={item.imageurl} />
         </CardMedia>
-        <Link to={`profile/${item.itemowner.id}`}>
+        <Link to={`/profile/${item.itemowner.id}`}>
           <CardHeader
             title={item.itemowner.fullname}
             subtitle="Subtitle"
