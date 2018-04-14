@@ -41,10 +41,8 @@ class ItemsContainer extends Component {
             }
           });
         });
-        this.setState({
-          itemsData: itemsArray
-        });
       })
+
       .then(() => this.setState({ isLoading: false, itemsData: itemsArray }))
       .catch(error => console.log(error));
   }

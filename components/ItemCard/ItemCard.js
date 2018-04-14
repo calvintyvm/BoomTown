@@ -13,6 +13,8 @@ import "./styles.css";
 import PropTypes from "prop-types";
 import Masonry from "react-masonry-component";
 import Gravatar from "react-gravatar";
+import { Link } from "react-router-dom";
+import Profile from "../../containers/Profile";
 
 const style = {
   margin: 12
@@ -21,43 +23,35 @@ const style = {
 const styleAvatar = {
   borderRadius: 30
 };
-var masonryOptions = {
-  transitionDuration: 0
-};
 
 const ItemCard = props => {
-  let itemCards = props.itemsData;
-  //   console.log(itemCards);
+  let item = props.itemsData;
+
   return (
     <div>
-      <Masonry
-        className={"my-gallery-class"}
-        elementType={"ul"}
-        options={masonryOptions}
-        disableImagesLoaded={false}
-        updateOnEachImageLoad={false}
-      >
-        <Card>
-          <CardMedia>
-            <img src={itemCards.imageurl} />
-          </CardMedia>
+      <Card>
+        <CardMedia>
+          <img src={item.imageurl} />
+        </CardMedia>
+        <Link to={`profile/${item.itemowner.id}`}>
           <CardHeader
-            title="URL Avatar"
+            title={item.itemowner.fullname}
             subtitle="Subtitle"
             avatar={
-              <Gravatar email="mathews.kyle@gmail.com" style={styleAvatar} />
+              <Gravatar email={item.itemowner.email} style={styleAvatar} />
             }
           />
-          <CardTitle title="Red Academy" subtitle={itemCards.tags} />
-          <CardText>
-            {/* {itemCards.description.map((item, index) => {
+        </Link>
+        <CardTitle title="Red Academy" subtitle={item.tags} />
+        <CardText>
+          {/* {item.description.map((item, index) => {
             return <span>{(index ? ", " : "") + item}</span>;
           })} */}
-            {itemCards.description}
-          </CardText>
-          <RaisedButton label="Borrow" style={style} />
-        </Card>
-      </Masonry>
+
+          {item.description}
+        </CardText>
+        <RaisedButton label="Borrow" style={style} />
+      </Card>
     </div>
   );
 };
