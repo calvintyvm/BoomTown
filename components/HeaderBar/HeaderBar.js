@@ -4,13 +4,14 @@ import AppBar from "material-ui/AppBar";
 import { Link } from "react-router-dom";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
-import FlatButton from "material-ui/FlatButton";
-import { cyan500, cyan200, grey900, grey500 } from "material-ui/styles/colors";
+import RaisedButton from "material-ui/RaisedButton";
+import { cyan200, grey900, grey500 } from "material-ui/styles/colors";
+import "./styles.css";
 
 const HeaderBar = () => {
   return (
-    <AppBar iconElementLeft={<img src={logo} />}>
-      <DropDownMenu
+    <AppBar className="Header" iconElementLeft={<img src={logo} />}>
+      {/* <DropDownMenu
       // value={"helloooo"}
       // onChange={this.handleChange}
       // style={styles.customWidth}
@@ -22,19 +23,25 @@ const HeaderBar = () => {
         <MenuItem value={3} primaryText="Weeknights" />
         <MenuItem value={4} primaryText="Weekends" />
         <MenuItem value={5} primaryText="Weekly" />
-      </DropDownMenu>
-      <FlatButton
+      </DropDownMenu> */}
+      <RaisedButton
+        className="profileButton"
         label="My Profile"
-        backgroundColor={cyan500}
-        hoverColor={cyan200}
+        // hoverColor={cyan200}
       />
-      <FlatButton
+      <RaisedButton
+        className="logoutButton"
         label="Logout"
-        backgroundColor={grey900}
-        hoverColor={grey500}
+        // hoverColor={grey500}
       />
     </AppBar>
   );
 };
 
 export default HeaderBar;
+
+// pass down as props
+//map the object
+//assign value for title
+
+//header stateful? Need to change state

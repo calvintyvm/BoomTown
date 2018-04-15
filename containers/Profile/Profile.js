@@ -32,7 +32,6 @@ const Profile = props => {
         profileArray = item.itemowner;
       })}
       <Card className="card">
-        {/* <Link to={`profile/${item.itemowner.id}`}> */}
         <div className="innerCardContainer">
           <div>
             <CardTitle className="cardTitle" title={profileArray.fullname} />
