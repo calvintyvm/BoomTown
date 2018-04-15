@@ -1,0 +1,12 @@
+.cardContainer{
+    margin: 0 auto;
+    max-width: 1140px;
+    width: 100%;
+    flex: 1 1 0%;
+
+}
+.innerCardContainer{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}

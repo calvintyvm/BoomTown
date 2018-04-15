@@ -15,6 +15,7 @@ import Masonry from "react-masonry-component";
 import Gravatar from "react-gravatar";
 import { Link } from "react-router-dom";
 import Profile from "../../containers/Profile";
+import moment from "moment";
 
 const style = {
   margin: 12
@@ -36,7 +37,7 @@ const ItemCard = props => {
         <Link to={`/profile/${item.itemowner.id}`}>
           <CardHeader
             title={item.itemowner.fullname}
-            subtitle="Subtitle"
+            subtitle={moment(item.created, "YYYYMMDD").fromNow()}
             avatar={
               <Gravatar email={item.itemowner.email} style={styleAvatar} />
             }
@@ -45,7 +46,7 @@ const ItemCard = props => {
         <CardTitle
           title="Red Academy"
           subtitle={item.tags.map((item, index) => {
-            return <span>{(index ? ", " : "") + item}</span>;
+            return <span key={index}>{(index ? ", " : "") + item}</span>;
           })}
         />
         <CardText>{item.description}</CardText>

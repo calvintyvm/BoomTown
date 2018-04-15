@@ -10,6 +10,11 @@ import {
   CardText
 } from "material-ui/Card";
 import Gravatar from "react-gravatar";
+import "./styles.css";
+
+const styleAvatar = {
+  borderRadius: 100
+};
 
 const Profile = props => {
   let items = props.itemsData;
@@ -19,18 +24,32 @@ const Profile = props => {
   // do ur profile card here
   //.length to check how many
   return (
-    <div>
+    <div className="cardContainer">
       {items.map((item, index) => {
         profileArray = item.itemowner;
       })}
-      <Card>
+      <Card className="card">
         {/* <Link to={`profile/${item.itemowner.id}`}> */}
-        <CardHeader
-          title={profileArray.fullname}
-          subtitle={profileArray.bio}
-          avatar={<Gravatar email={profileArray.email} />}
-        />
-        <CardText>{items.length} items Shared</CardText>
+        <div className="innerCardContainer">
+          <CardTitle
+            className="cardTitle"
+            title={profileArray.fullname}
+            subtitle={profileArray.bio}
+          />
+
+          <CardText className="cardText">{items.length} items Shared</CardText>
+
+          <CardHeader
+            className="cardAvatar"
+            avatar={
+              <Gravatar
+                email={profileArray.email}
+                size={200}
+                style={styleAvatar}
+              />
+            }
+          />
+        </div>
         {/* </Link> */}
       </Card>
     </div>
