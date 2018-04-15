@@ -10,6 +10,7 @@ import {
   CardText
 } from "material-ui/Card";
 import Gravatar from "react-gravatar";
+import PropTypes from "prop-types";
 import "./styles.css";
 
 const styleAvatar = {
@@ -57,3 +58,7 @@ const Profile = props => {
 };
 
 export default Profile;
+
+Profile.propTypes = {
+  itemsData: PropTypes.array.isRequired
+};

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Profile from "./Profile";
 import ItemCardList from "../../components/ItemCardList";
+import PropTypes from "prop-types";
 
 const userUrl = "http://localhost:3000/users";
 const itemsUrl = "http://localhost:3000/items";
