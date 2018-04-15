@@ -42,14 +42,13 @@ const ItemCard = props => {
             }
           />
         </Link>
-        <CardTitle title="Red Academy" subtitle={item.tags} />
-        <CardText>
-          {/* {item.description.map((item, index) => {
+        <CardTitle
+          title="Red Academy"
+          subtitle={item.tags.map((item, index) => {
             return <span>{(index ? ", " : "") + item}</span>;
-          })} */}
-
-          {item.description}
-        </CardText>
+          })}
+        />
+        <CardText>{item.description}</CardText>
         <RaisedButton label="Borrow" style={style} />
       </Card>
     </div>
