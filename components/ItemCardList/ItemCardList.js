@@ -3,14 +3,16 @@ import ItemCard from "../../components/ItemCard";
 import PropTypes from "prop-types";
 import Masonry from "react-masonry-component";
 
-var masonryOptions = {
-  transitionDuration: 0,
-  gutter: 30
+//ask about left
+const styles = {
+  width: "100vw",
+  left: "7.5%"
 };
 
-const styles = {
-  width: "100%",
-  marginBottom: 20
+const masonryOptions = {
+  horizontalOrder: true,
+  columnWidth: 350,
+  gutter: 20
 };
 
 const ItemCardList = props => {

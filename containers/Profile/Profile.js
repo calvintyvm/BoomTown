@@ -17,6 +17,8 @@ const styleAvatar = {
   borderRadius: 100
 };
 
+const style = {};
+
 const Profile = props => {
   let items = props.itemsData;
   let profileArray = [];
@@ -32,20 +34,22 @@ const Profile = props => {
       <Card className="card">
         {/* <Link to={`profile/${item.itemowner.id}`}> */}
         <div className="innerCardContainer">
-          <CardTitle
-            className="cardTitle"
-            title={profileArray.fullname}
-            subtitle={profileArray.bio}
-          />
-
-          <CardText className="cardText">{items.length} items Shared</CardText>
-
+          <div>
+            <CardTitle className="cardTitle" title={profileArray.fullname} />
+            <CardTitle className="cardSubTitle" subtitle={profileArray.bio} />
+          </div>
+          <div style={{ marginLeft: "2rem" }}>
+            <CardText className="cardNumber">{items.length}</CardText>
+            <CardText className="cardText">Items Shared</CardText>
+            <CardText className="cardNumber">0</CardText>
+            <CardText className="cardText">Items Borrowed</CardText>
+          </div>
           <CardHeader
             className="cardAvatar"
             avatar={
               <Gravatar
                 email={profileArray.email}
-                size={200}
+                size={180}
                 style={styleAvatar}
               />
             }
