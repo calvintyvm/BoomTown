@@ -34,10 +34,17 @@
 .cardText{
     padding:0 !important;
     font-size:1rem !important;
+    color: rgba(38, 50, 56, 0.54) !important;
 
 }
 .cardAvatar{
     padding:0 !important;
     margin-left:10px;
     width:30%;
+}
+.loadingIcon{
+    left:50%;
+    margin-top:25%;
+    height:100%;
+    position:absolute;
 }

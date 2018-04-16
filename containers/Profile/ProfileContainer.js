@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Profile from "./Profile";
 import ItemCardList from "../../components/ItemCardList";
 import PropTypes from "prop-types";
+import CircularProgress from "material-ui/CircularProgress";
 
 const userUrl = "http://localhost:3000/users";
 const itemsUrl = "http://localhost:3000/items";
@@ -50,8 +51,14 @@ class ProfileContainer extends Component {
     // console.log(this.state.itemsData);
     return (
       <div>
-        <Profile itemsData={this.state.itemsData} />
-        <ItemCardList itemsData={this.state.itemsData} />
+        {this.state.isLoading ? (
+          <CircularProgress className="loadingIcon" thickness={7} />
+        ) : (
+          <div>
+            <Profile itemsData={this.state.itemsData} />
+            <ItemCardList itemsData={this.state.itemsData} />
+          </div>
+        )}
       </div>
     );
   }

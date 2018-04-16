@@ -24,3 +24,14 @@
     margin-top:12px;
     height:2.2rem;
 }
+/* .buttonContainer{
+    display:flex;
+    justify-content:flex-end;
+    margin-right:2rem;
+height:80%;
+align-items:center;
+} */
+.dropDown{
+    width:10rem;
+
+}

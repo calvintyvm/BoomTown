@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import CircularProgress from "material-ui/CircularProgress";
 import Items from "./Items";
+import "./styles.css";
 // import ItemCard from "../../components/ItemCardList";
 
 const userUrl = "http://localhost:3000/users";
@@ -50,7 +52,11 @@ class ItemsContainer extends Component {
   render() {
     return (
       <div>
-        <Items itemsData={this.state.itemsData} />
+        {this.state.isLoading ? (
+          <CircularProgress className="loadingIcon" thickness={7} />
+        ) : (
+          <Items itemsData={this.state.itemsData} />
+        )}
       </div>
     );
   }
