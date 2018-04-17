@@ -7,16 +7,6 @@ import "./styles.css";
 const userUrl = "http://localhost:3000/users";
 const itemsUrl = "http://localhost:3000/items";
 
-//ASK SID
-// shuffleArray = () => {
-//   let random = this.state.itemsData.sort(()=> {
-//     return 0.5 - Math.random();
-//   });
-//   this.setState({
-//     itemsData: random
-//   });
-// };
-
 class ItemsContainer extends Component {
   constructor(props) {
     super();
@@ -25,7 +15,6 @@ class ItemsContainer extends Component {
       itemsData: [],
       random: 0
     };
-    // this.shuffleArray = this.shuffleArray.bind(this);
   }
   componentDidMount() {
     const urls = [userUrl, itemsUrl];
