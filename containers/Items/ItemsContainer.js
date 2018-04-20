@@ -2,53 +2,49 @@ import React, { Component } from "react";
 import CircularProgress from "material-ui/CircularProgress";
 import Items from "./Items";
 import "./styles.css";
+import { connect } from "react-redux";
+import { fetchItemsFromUrl} from "../../redux/modules/items";
 // import ItemCard from "../../components/ItemCardList";
 
-const userUrl = "http://localhost:3000/users";
-const itemsUrl = "http://localhost:3000/items";
+// const userUrl = "http://localhost:3000/users";
+// const itemsUrl = "http://localhost:3000/items";
+
 
 class ItemsContainer extends Component {
-  constructor(props) {
-    super();
-    this.state = {
-      isLoading: false,
-      itemsData: [],
-      random: 0
-    };
-  }
-  componentDidMount() {
-    const urls = [userUrl, itemsUrl];
-    this.setState({ isLoading: true });
-    let userArray = [];
-    let itemsArray = [];
-    Promise.all(urls.map(url => fetch(url).then(resp => resp.json())))
-      .then(objects => {
-        userArray = objects[0];
-        itemsArray = objects[1];
-        itemsArray.map((item, index) => {
-          userArray.map((user, index) => {
-            if (user.id === item.itemowner) {
-              item.itemowner = user;
-            }
-          });
-        });
-      })
 
-      .then(() => this.setState({ isLoading: false, itemsData: itemsArray }))
-      .catch(error => console.log(error));
+  componentDidMount() {
+    this.props.dispatch(fetchItemsFromUrl());
   }
+
+  filterItems = itemsData =>{
+    if (itemsData.itemFilters.length > 0){
+      let filteredItems = itemsData.items.filter(item=>{
+        return item.tags.filter(tag=>
+        itemsData.itemFilters.find(filter=>filter === tag)).length;
+      });
+      return filteredItems;
+    }
+    return itemsData.items;
+  };
 
   render() {
+// console.log(this.props.items)
     return (
       <div>
-        {this.state.isLoading ? (
-          <CircularProgress className="loadingIcon" thickness={7} />
-        ) : (
-          <Items itemsData={this.state.itemsData} />
-        )}
+          {
+            (this.props.itemsData.isLoading) ? (
+            <CircularProgress className="loadingIcon" thickness={7} />) : 
+            (<Items itemsData={this.filterItems(this.props.itemsData)} />
+            )}
+
       </div>
     );
   }
 }
 
-export default ItemsContainer;
+
+export default connect(state=>{
+  return {
+    itemsData:state.itemsData
+  }
+})(ItemsContainer);

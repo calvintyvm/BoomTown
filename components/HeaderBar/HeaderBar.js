@@ -1,5 +1,5 @@
 import logo from "../../images/boomtown-logo.svg";
-import React from "react";
+
 import AppBar from "material-ui/AppBar";
 import { Link } from "react-router-dom";
 import RaisedButton from "material-ui/RaisedButton";
@@ -7,45 +7,68 @@ import { cyan200, grey900, grey500 } from "material-ui/styles/colors";
 import "./styles.css";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
+import TagFilterField from "../TagFilterField";
+import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { fetchItemsFromUrl} from "../../redux/modules/items";
 
-const HeaderBar = () => {
-  return (
-    <AppBar
-      className="Header"
-      iconElementLeft={<img src={logo} />}
-      // title={<span style={styles.title}>Title</span>}
-    >
-      <DropDownMenu
-        className="dropDown"
-        value={"helloooo"}
-        onChange={this.handleChange}
-        autoWidth={false}
+class HeaderBar extends Component {
+
+  componentDidMount(){
+    const urls = ["http://localhost:3000/items", "http:://localhost:3000/users"];
+    this.props.dispatch(fetchItemsFromUrl(urls));
+  }
+
+  getTags = items =>{
+    let tags =[];
+    if(items.length && items[0] !==undefined){
+      items.map(item=>{
+        if (item.tags !== undefined){
+          if(!item.tags.includes(undefined)){
+            item.tags.map(tag=>{
+              if(!tags.includes(tag)){
+                tags.push(tag);
+              }
+            });
+          }
+        }
+      });
+    }
+    return tags
+  };
+
+
+  render() {
+    const tags = this.getTags(this.props.items.items)
+    return ( 
+      <AppBar
+        className="Header"
+        iconElementLeft={<img src={logo} />}
+        // title={<span style={styles.title}>Title</span>}
       >
-        <MenuItem value={1} primaryText="Custom width" />
-        <MenuItem value={2} primaryText="Every Night" />
-        <MenuItem value={3} primaryText="Weeknights" />
-        <MenuItem value={4} primaryText="Weekends" />
-        <MenuItem value={5} primaryText="Weekly" />
-      </DropDownMenu>
-      <RaisedButton
-        className="profileButton"
-        label="My Profile"
-        // hoverColor={cyan200}
-      />
-      <RaisedButton
-        className="logoutButton"
-        label="Logout"
-        // hoverColor={grey500}
-      />
-    </AppBar>
-  );
-};
+      {tags.length && <TagFilterField tags={tags}/>}
+        <div>
+        <RaisedButton
+          className="profileButton"
+          label="My Profile"
+          // hoverColor={cyan200}
+        />
+        <RaisedButton
+          className="logoutButton"
+          label="Logout"
+          // hoverColor={grey500}
+        />
+        </div>
+      </AppBar>
+  
+    );
+}
+}
 
-export default HeaderBar;
 
-//  need to map
-// pass down as props
-//map the object
-//assign value for title
 
-//header stateful? Need to change state
+export default connect(state=>{
+  return {
+    items:state.itemsData
+  }
+})(HeaderBar);

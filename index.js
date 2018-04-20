@@ -8,14 +8,23 @@ import Layout from "./components/Layout";
 // import Login from "./containers/Login";
 // import Items from "./containers/Items";
 import Routes from "./Routes";
-import HeaderBar from "./components/HeaderBar";
 
+import store from "./redux/store";
+import {BrowserRouter as Router} from "react-router-dom";
+import { Provider } from "react-redux";
+
+// console.log(Store.disp);
+
+// console.log(Store.dispatch(get_name_count()));
 const Boomtown = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
-    <Layout>
-      <HeaderBar />
-      <Routes />
-    </Layout>
+    <Provider store={store}>
+    <Router>
+      <Layout>
+        <Routes />
+      </Layout>
+      </Router>
+    </Provider>
   </MuiThemeProvider>
 );
 

@@ -16,6 +16,4 @@ export default Items;
 Items.propTypes = {
   itemsData: PropTypes.array.isRequired
 };
-//errror
-//loading
-//redux
+
