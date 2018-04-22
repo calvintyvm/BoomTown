@@ -8,17 +8,16 @@ import TagFilterField from '../TagFilterField';
 import { fetchItemsFromUrl } from '../../redux/modules/items';
 
 class HeaderBar extends Component {
-
   componentDidMount() {
     const urls = ['http://localhost:3000/items", "http:://localhost:3000/users'];
     this.props.dispatch(fetchItemsFromUrl(urls));
   }
 
-  getTags = items => { 
+  getTags = items => {
     const tags = [];
     if (items.length && items[0] !== undefined) {
       items.map(item => {
-        if (item.tags !== undefined) {
+         if (item.tags !== undefined) {
           if (!item.tags.includes(undefined)) {
             item.tags.map(tag => {
               if (!tags.includes(tag)) {
@@ -44,8 +43,6 @@ class HeaderBar extends Component {
         </div> </AppBar>);
 }
 }
-export default connect(state =>{
-  return {
+export default connect(state => ({
   items: state.itemsData
-  };
-})(HeaderBar);
+  }))(HeaderBar);

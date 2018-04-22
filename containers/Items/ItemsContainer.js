@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import CircularProgress from "material-ui/CircularProgress";
-import Items from "./Items";
-import "./styles.css";
-import { connect } from "react-redux";
-import { fetchItemsFromUrl} from "../../redux/modules/items";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import CircularProgress from 'material-ui/CircularProgress';
+import Items from './Items';
+import './styles.css';
+import { fetchItemsFromUrl } from '../../redux/modules/items';
 // import ItemCard from "../../components/ItemCardList";
 
 // const userUrl = "http://localhost:3000/users";
@@ -11,17 +11,14 @@ import { fetchItemsFromUrl} from "../../redux/modules/items";
 
 
 class ItemsContainer extends Component {
-
   componentDidMount() {
     this.props.dispatch(fetchItemsFromUrl());
   }
 
-  filterItems = itemsData =>{
-    if (itemsData.itemFilters.length > 0){
-      let filteredItems = itemsData.items.filter(item=>{
-        return item.tags.filter(tag=>
-        itemsData.itemFilters.find(filter=>filter === tag)).length;
-      });
+  filterItems = itemsData => {
+    if (itemsData.itemFilters.length > 0) {
+      const filteredItems = itemsData.items.filter(item => item.tags.filter(tag =>
+        itemsData.itemFilters.find(filter => filter === tag)).length);
       return filteredItems;
     }
     return itemsData.items;
@@ -30,21 +27,19 @@ class ItemsContainer extends Component {
   render() {
 // console.log(this.props.items)
     return (
-      <div>
-          {
+        <div>
+            {
             (this.props.itemsData.isLoading) ? (
-            <CircularProgress className="loadingIcon" thickness={7} />) : 
+                <CircularProgress className="loadingIcon" thickness={7} />) :
             (<Items itemsData={this.filterItems(this.props.itemsData)} />
             )}
 
-      </div>
+        </div>
     );
   }
 }
 
 
-export default connect(state=>{
-  return {
-    itemsData:state.itemsData
-  }
-})(ItemsContainer);
+export default connect(state => ({
+    itemsData: state.itemsData
+  }))(ItemsContainer);

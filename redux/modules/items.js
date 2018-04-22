@@ -1,14 +1,12 @@
+const GET_ITEMS = 'GET_ITEMS';
+const GET_IS_LOADING = 'GET_IS_LOADING';
+const GET_ERROR = 'GET_ERROR';
+const GET_ITEM_FILTERS = 'GET_ITEM_FILTERS';
+const GET_TAGS = 'GET_TAGS';
 
-const GET_ITEMS = "GET_ITEMS";
-const GET_IS_LOADING = "GET_IS_LOADING";
-const GET_ERROR = "GET_ERROR";
-const GET_ITEM_FILTERS = "GET_ITEM_FILTERS";
-const GET_TAGS = "GET_TAGS";
-
-export const get_tags = () =>({
+export const get_tags = () => ({
 type: GET_TAGS
-})
-
+});
 
 
 export const get_items = (items) => ({
@@ -16,17 +14,17 @@ export const get_items = (items) => ({
   payload: items
 });
 
-export const get_is_loading = () =>({
+export const get_is_loading = () => ({
   type: GET_IS_LOADING,
 
 });
 
-export const get_error = (isError) =>({
+export const get_error = (isError) => ({
   type: GET_ERROR,
-  payload:isError
+  payload: isError
 });
 
-export const get_item_filters = (itemFilters) =>({
+export const get_item_filters = (itemFilters) => ({
   type: GET_ITEM_FILTERS,
   payload: itemFilters
 });
@@ -34,27 +32,26 @@ export const get_item_filters = (itemFilters) =>({
 const initialState = {
   items: [],
   isLoading: false,
-  itemFilters:[],
-  error:""
+  itemFilters: [],
+  error: ''
 };
-//all our function first
+// all our function first
 
 
 export const fetchItemsFromUrl = () => dispatch => {
-
-const urls = ["http://localhost:3000/items","http://localhost:3000/users"];
-const combineItemsAndUsers = itemsAndUsers =>{
+const urls = ['http://localhost:3000/items', 'http://localhost:3000/users'];
+const combineItemsAndUsers = itemsAndUsers => {
 itemsAndUsers[0].map(item => {
   itemsAndUsers[1].map(user => {
             if (user.id === item.itemowner) {
               item.itemowner = user;
-            }    
-  })
-})
-return itemsAndUsers[0]
-}
+            }
+  });
+});
+return itemsAndUsers[0];
+};
 
-//we use functions when we need to
+ // we use functions when we need to
 dispatch(get_is_loading());
 Promise.all(urls.map(url => fetch(url)
 .then(resp => resp.json())))
@@ -81,17 +78,16 @@ export default (state = initialState, action) => {
         if (index >= 0) {
           itemFilters.splice(index, 1);
         }
-
       }
       return { ...state, itemFilters };
       break;
     }
-    case GET_ERROR:{
-      return{...state, isLoading:false, error:action.payload};
+    case GET_ERROR: {
+      return { ...state, isLoading: false, error: action.payload };
       break;
     }
-    case GET_TAGS:{
-      return{...state}
+    case GET_TAGS: {
+      return { ...state };
     }
 
     default: {

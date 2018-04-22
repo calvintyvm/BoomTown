@@ -11,14 +11,14 @@ const TagFilterField = ({ tags, dispatch, selectedTags }) => {
         dispatch(get_item_filters(value));
     }
     return (
-        <SelectField multiple={true} hintText ="Filter By Tag" onChange={(event, index, value) => handleFilter(value[0])}>
+        <SelectField multiple hintText="Filter By Tag" onChange={(event, index, value) => handleFilter(value[0])}>
             {tags && tags.map((tag, index) => (
-            <MenuItem
-            key={index}
-            value={tag}
-            primaryText={tag}
-            checked={selectedTags && selectedTags.indexOf(tag) >= 0}
-            />
+                <MenuItem
+                    key={index}
+                    value={tag}
+                    primaryText={tag}
+                    checked={selectedTags && selectedTags.indexOf(tag) >= 0}
+                />
         ))}
         </SelectField>
     );

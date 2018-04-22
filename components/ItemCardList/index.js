@@ -1,3 +1,3 @@
-import ItemCardList from "./ItemCardList";
+import ItemCardList from './ItemCardList';
 
 export default ItemCardList;

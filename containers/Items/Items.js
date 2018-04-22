@@ -1,15 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import ItemCardList from "../../components/ItemCardList";
+import ItemCardList from '../../components/ItemCardList';
 
-const Items = props => {
-  return (
+const Items = props => (
     <div>
-      <ItemCardList itemsData={props.itemsData} />
+        <ItemCardList itemsData={props.itemsData} />
     </div>
   );
-};
 
 export default Items;
 

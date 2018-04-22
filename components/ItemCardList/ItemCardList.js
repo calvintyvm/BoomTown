@@ -1,12 +1,13 @@
-import React from "react";
-import ItemCard from "../../components/ItemCard";
-import PropTypes from "prop-types";
-import Masonry from "react-masonry-component";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Masonry from 'react-masonry-component';
+import ItemCard from '../../components/ItemCard';
 
-//ask about left
+
+// ask about left
 const styles = {
-  width: "100vw",
-  left: "7.5%"
+  width: '100vw',
+  left: '7.5%'
 };
 
 const masonryOptions = {
@@ -15,23 +16,21 @@ const masonryOptions = {
   gutter: 20
 };
 
-const ItemCardList = props => {
-  return (
-    <Masonry 
-    elementType={"ul"}
-      options={masonryOptions}
-      disableImagesLoaded={false}
-      updateOnEachImageLoad={true}
-      style={styles}
+const ItemCardList = props => (
+    <Masonry
+        elementType={'ul'}
+        options={masonryOptions}
+        disableImagesLoaded={false}
+        updateOnEachImageLoad
+        style={styles}
     >
-      {props.itemsData.map((item, index) => (
-        <li key={index}>
-          <ItemCard itemsData={item} />
-        </li>
+        {props.itemsData.map((item, index) => (
+            <li key={index}>
+                <ItemCard itemsData={item} />
+            </li>
       ))}
     </Masonry>
   );
-};
 
 export default ItemCardList;
 
