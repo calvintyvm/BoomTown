@@ -9,6 +9,7 @@ import './styles.css';
 import TagFilterField from '../TagFilterField';
 import { fetchItemsFromUrl } from '../../redux/modules/items';
 
+let currentUrl = window.location.href;
 const icon = (
     <Link to="/">
         <img src={logo} alt="logo" />
@@ -47,7 +48,7 @@ class HeaderBar extends Component {
         className="Header"
         iconElementLeft={icon}
     >
-        {tags.length && <TagFilterField tags={tags} selectedTags={this.props.items.itemFilters} />}
+        { !currentUrl.includes('/profile') ? (<TagFilterField tags={tags} selectedFilter={this.props.items.itemFilters} />) : null }
         <div>
             <RaisedButton className="profileButton" label="My Profile" />
             <RaisedButton className="logoutButton" label="Logout" />

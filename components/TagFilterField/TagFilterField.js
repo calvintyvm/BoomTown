@@ -6,18 +6,19 @@ import MenuItem from 'material-ui/MenuItem';
 import { get_item_filters } from '../../redux/modules/items';
 // import {get_item_filters} from
 
-const TagFilterField = ({ tags, dispatch, selectedTags }) => {
+
+const TagFilterField = ({ tags, dispatch, selectedFilter }) => {
     function handleFilter(value) {
         dispatch(get_item_filters(value));
     }
     return (
-        <SelectField multiple hintText="Filter By Tag" onChange={(event, index, value) => handleFilter(value[0])}>
+        <SelectField className="headerFilter" multiple hintText="Filter By Tag" onChange={(event, index, value) => handleFilter(value[0])}>
             {tags && tags.map((tag, index) => (
                 <MenuItem
                     key={index}
                     value={tag}
                     primaryText={tag}
-                    checked={selectedTags && selectedTags.indexOf(tag) >= 0}
+                    checked={selectedFilter && selectedFilter.indexOf(tag) >= 0}
                 />
         ))}
         </SelectField>
@@ -25,7 +26,7 @@ const TagFilterField = ({ tags, dispatch, selectedTags }) => {
 };
 TagFilterField.propTypes = {
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    selectedTags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selectedFilter: PropTypes.arrayOf(PropTypes.string).isRequired,
     dispatch: PropTypes.func.isRequired
 };
 
