@@ -25,7 +25,7 @@ class ItemsContainer extends Component {
   };
 
   render() {
-// console.log(this.props.items)
+
     return (
         <div>
             {

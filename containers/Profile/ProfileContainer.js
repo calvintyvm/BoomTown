@@ -16,11 +16,13 @@ class ProfileContainer extends Component {
 
         <div>
             {
-                <div>
-                    <Profile itemsData={this.props.profile} />
-                    <ItemCardList itemsData={this.props.profile} />
+              (this.props.profile.isLoading) ? (
+                  <CircularProgress className="loadingIcon" thickness={7} />) :
+                (<div>
+                    <Profile itemsData={this.props.profile.profile} />
+                    <ItemCardList itemsData={this.props.profile.profile} />
                 </div>
-        }
+                )}
 
         </div>
     );
@@ -29,5 +31,5 @@ class ProfileContainer extends Component {
 
 
 export default connect(state => ({
-    profile: state.profileData.profile
+    profile: state.profileData
   }))(ProfileContainer);

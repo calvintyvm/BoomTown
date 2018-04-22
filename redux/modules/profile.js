@@ -1,4 +1,3 @@
-// anywhere your managing a state must be a module
 const GET_PROFILE = 'GET_PROFILE';
 const GET_IS_LOADING = 'GET_IS_LOADING';
 const GET_ERROR = 'GET_ERROR';
@@ -10,7 +9,6 @@ export const get_profile = profile => ({
 
 export const get_is_loading = () => ({
   type: GET_IS_LOADING,
-
 });
 
 export const get_error = (isError) => ({
@@ -22,8 +20,7 @@ export const get_error = (isError) => ({
 const initialState = {
     profile: [],
     error: '',
-    isLoading: false
-
+    isLoading: false,
 };
 
 const filterProfile = (items, profile) => items.filter(item => item.itemowner.id === profile);
@@ -45,6 +42,7 @@ export const fetchProfileFromUrl = (userid) => dispatch => {
     };
 
 dispatch(get_is_loading());
+// console.log("hello")
 Promise.all(urls.map(url => fetch(url)
 .then(resp => resp.json())))
 .then(responses => dispatch(get_profile(filterProfile(combineItemsAndUsers(responses), userid))))
@@ -56,16 +54,13 @@ export default (state = initialState, action) => {
       switch (action.type) {
         case GET_IS_LOADING: {
           return { ...state, isLoading: true, error: '' };
-          break;
         }
           case GET_PROFILE: {
             const profile = action.payload;
-            return { ...state, profile, isLoading: false, error: '' };
-            break;
+            return { ...state, isLoading: false, error: '', profile };
           }
           case GET_ERROR: {
             return { ...state, isLoading: false, error: action.payload };
-            break;
           }
 
           default: {

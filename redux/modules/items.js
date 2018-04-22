@@ -2,11 +2,7 @@ const GET_ITEMS = 'GET_ITEMS';
 const GET_IS_LOADING = 'GET_IS_LOADING';
 const GET_ERROR = 'GET_ERROR';
 const GET_ITEM_FILTERS = 'GET_ITEM_FILTERS';
-const GET_TAGS = 'GET_TAGS';
 
-export const get_tags = () => ({
-type: GET_TAGS
-});
 
 
 export const get_items = (items) => ({
@@ -86,10 +82,6 @@ export default (state = initialState, action) => {
       return { ...state, isLoading: false, error: action.payload };
       break;
     }
-    case GET_TAGS: {
-      return { ...state };
-    }
-
     default: {
       return {
         ...state
