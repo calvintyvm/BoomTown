@@ -55,9 +55,9 @@ const Profile = props => {
 
 // export default Profile;
 
-// Profile.propTypes = {
-//   itemsData: PropTypes.array.isRequired
-// };
+Profile.propTypes = {
+profile: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 
 export default connect(state => ({

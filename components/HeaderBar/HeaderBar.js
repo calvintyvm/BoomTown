@@ -1,4 +1,5 @@
 import RaisedButton from 'material-ui/RaisedButton';
+import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -46,3 +47,13 @@ class HeaderBar extends Component {
 export default connect(state => ({
   items: state.itemsData
   }))(HeaderBar);
+
+
+  HeaderBar.propTypes = {
+    items: PropTypes.shape({
+      items: PropTypes.array,
+      isLoading: PropTypes.bool,
+      itemFilters: PropTypes.array,
+      error: PropTypes.string
+    }).isRequired
+  };

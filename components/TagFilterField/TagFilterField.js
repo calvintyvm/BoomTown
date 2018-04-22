@@ -23,6 +23,10 @@ const TagFilterField = ({ tags, dispatch, selectedTags }) => {
         </SelectField>
     );
 };
-
+TagFilterField.propTypes = {
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selectedTags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    dispatch: PropTypes.func.isRequired
+};
 
 export default connect()(TagFilterField);

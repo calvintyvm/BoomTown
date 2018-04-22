@@ -29,7 +29,12 @@ class ProfileContainer extends Component {
   }
 }
 
-
+ProfileContainer.propTypes = {
+  profile: PropTypes.shape({
+    profile: PropTypes.array,
+    dispatch: PropTypes.func
+  }).isRequired
+};
 export default connect(state => ({
     profile: state.profileData
   }))(ProfileContainer);

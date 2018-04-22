@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CircularProgress from 'material-ui/CircularProgress';
 import Items from './Items';
@@ -43,3 +44,10 @@ class ItemsContainer extends Component {
 export default connect(state => ({
     itemsData: state.itemsData
   }))(ItemsContainer);
+
+  ItemsContainer.propTypes = {
+    itemsData: PropTypes.shape({
+      items: PropTypes.array,
+      dispatch: PropTypes.func
+    }).isRequired
+  };
