@@ -15,10 +15,6 @@ const styleAvatar = {
 };
 const Profile = props => {
   let profileArray = [];
-  // ask about  map, whether or not item or itemowner is best for borrower later(very specific itemwoner)
-  // console.log(item);
-  // do ur profile card here
-  // .length to check how many
   return (
       <div className="cardContainer">
           {props.profile.forEach((item) => {

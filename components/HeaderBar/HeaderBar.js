@@ -8,6 +8,7 @@ import logo from '../../images/boomtown-logo.svg';
 import './styles.css';
 import TagFilterField from '../TagFilterField';
 import { fetchItemsFromUrl } from '../../redux/modules/items';
+
 const icon = (
     <Link to="/">
         <img src={logo} alt="logo" />
