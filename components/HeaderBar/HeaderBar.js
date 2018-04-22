@@ -8,15 +8,14 @@ import logo from '../../images/boomtown-logo.svg';
 import './styles.css';
 import TagFilterField from '../TagFilterField';
 import { fetchItemsFromUrl } from '../../redux/modules/items';
+import { Route, Switch, Router } from 'react-router-dom';
 
-let currentUrl = window.location.href;
+const currentUrl = window.location.href;
 const icon = (
     <Link to="/">
         <img src={logo} alt="logo" />
     </Link>
 );
-
-
 class HeaderBar extends Component {
   componentDidMount() {
     const urls = ['http://localhost:3000/items", "http:://localhost:3000/users'];
@@ -47,8 +46,10 @@ class HeaderBar extends Component {
     return (<AppBar
         className="Header"
         iconElementLeft={icon}
-    >
-        { !currentUrl.includes('/profile') ? (<TagFilterField tags={tags} selectedFilter={this.props.items.itemFilters} />) : null }
+    >  
+        {/* {newest()} */}
+        {/* {newUrl(currentUrl)} */}
+        { !window.location.href.includes('profile') ? (<TagFilterField tags={tags} selectedFilter={this.props.items.itemFilters} />) : null }
         <div>
             <RaisedButton className="profileButton" label="My Profile" />
             <RaisedButton className="logoutButton" label="Logout" />
