@@ -18,19 +18,19 @@ others may have to lend out. This part of the project is only for the UI part.</
 <h3>RED Academy </h3>
 
 <h2>Process To Run BoomTown</h2>
-```bash
+```
 npm install
 ```
 <h3>Global install JSON Server </h3>
-```bash
+```
 npm install -g json-server
 ```
 <h3>Run Server Watch</h3>
-```bash
+```
 json-server --watch db.json
 ```
 <h3>Run dev</h3>
-```bash
+```
 npm run dev
 ```
 
