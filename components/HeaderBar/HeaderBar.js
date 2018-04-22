@@ -2,11 +2,18 @@ import RaisedButton from 'material-ui/RaisedButton';
 import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import logo from '../../images/boomtown-logo.svg';
 import './styles.css';
 import TagFilterField from '../TagFilterField';
 import { fetchItemsFromUrl } from '../../redux/modules/items';
+const icon = (
+    <Link to="/">
+        <img src={logo} alt="logo" />
+    </Link>
+);
+
 
 class HeaderBar extends Component {
   componentDidMount() {
@@ -37,7 +44,9 @@ class HeaderBar extends Component {
     const tags = this.getTags(this.props.items.items);
     return (<AppBar
         className="Header"
-        iconElementLeft={<img src={logo} alt="logo" />}>{tags.length && <TagFilterField tags={tags} selectedTags={this.props.items.itemFilters}/>}
+        iconElementLeft={icon}
+    >
+        {tags.length && <TagFilterField tags={tags} selectedTags={this.props.items.itemFilters} />}
         <div>
             <RaisedButton className="profileButton" label="My Profile" />
             <RaisedButton className="logoutButton" label="Logout" />
