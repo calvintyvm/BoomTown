@@ -2,9 +2,6 @@ const GET_ITEMS = 'GET_ITEMS';
 const GET_IS_LOADING = 'GET_IS_LOADING';
 const GET_ERROR = 'GET_ERROR';
 const GET_ITEM_FILTERS = 'GET_ITEM_FILTERS';
-
-
-
 export const get_items = (items) => ({
   type: GET_ITEMS,
   payload: items
@@ -37,8 +34,8 @@ const initialState = {
 export const fetchItemsFromUrl = () => dispatch => {
 const urls = ['http://localhost:3000/items', 'http://localhost:3000/users'];
 const combineItemsAndUsers = itemsAndUsers => {
-itemsAndUsers[0].map(item => {
-  itemsAndUsers[1].map(user => {
+itemsAndUsers[0].forEach(item => {
+  itemsAndUsers[1].forEach(user => {
             if (user.id === item.itemowner) {
               item.itemowner = user;
             }

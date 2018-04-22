@@ -21,7 +21,7 @@ const Profile = props => {
   // .length to check how many
   return (
       <div className="cardContainer">
-          {props.profile.map((item, index) => {
+          {props.profile.forEach((item) => {
         profileArray = item.itemowner;
       })}
           <Card className="card">

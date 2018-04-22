@@ -31,8 +31,8 @@ export const fetchProfileFromUrl = (userid) => dispatch => {
   const urls = ['http://localhost:3000/items', 'http://localhost:3000/users'];
 
   const combineItemsAndUsers = itemsAndUsers => {
-    itemsAndUsers[0].map(item => {
-      itemsAndUsers[1].map(user => {
+    itemsAndUsers[0].forEach(item => {
+      itemsAndUsers[1].forEach(user => {
                 if (user.id === item.itemowner) {
                   item.itemowner = user;
                 }

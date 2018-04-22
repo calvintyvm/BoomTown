@@ -17,10 +17,10 @@ class HeaderBar extends Component {
   getTags = items => {
     const tags = [];
     if (items.length && items[0] !== undefined) {
-      items.map(item => {
+      items.forEach(item => {
         if (item.tags !== undefined) {
           if (!item.tags.includes(undefined)) {
-            item.tags.map(tag => {
+            item.tags.forEach(tag => {
               if (!tags.includes(tag)) {
                 tags.push(tag);
               }
