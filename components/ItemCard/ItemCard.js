@@ -1,22 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import Gravatar from 'react-gravatar';
+import { Link } from 'react-router-dom';
+import moment from 'moment';
 import {
   Card,
-  CardActions,
   CardHeader,
   CardMedia,
   CardTitle,
   CardText
 } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import './styles.css';
 
-import Masonry from 'react-masonry-component';
-import Gravatar from 'react-gravatar';
-import { Link } from 'react-router-dom';
-import Profile from '../../containers/Profile';
-import moment from 'moment';
 
 const style = {
   margin: 12

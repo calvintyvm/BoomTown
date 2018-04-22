@@ -18,7 +18,7 @@ class HeaderBar extends Component {
     const tags = [];
     if (items.length && items[0] !== undefined) {
       items.map(item => {
-         if (item.tags !== undefined) {
+        if (item.tags !== undefined) {
           if (!item.tags.includes(undefined)) {
             item.tags.map(tag => {
               if (!tags.includes(tag)) {
@@ -50,6 +50,7 @@ export default connect(state => ({
 
 
   HeaderBar.propTypes = {
+    dispatch: PropTypes.func.isRequired,
     items: PropTypes.shape({
       items: PropTypes.array,
       isLoading: PropTypes.bool,

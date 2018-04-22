@@ -58,12 +58,10 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case GET_IS_LOADING: {
       return { ...state, isLoading: true, error: '' };
-      break;
     }
     case GET_ITEMS: {
       const items = action.payload;
       return { ...state, items, isLoading: false, error: '' };
-      break;
     }
     case GET_ITEM_FILTERS: {
       const itemFilters = [...state.itemFilters];
@@ -76,11 +74,9 @@ export default (state = initialState, action) => {
         }
       }
       return { ...state, itemFilters };
-      break;
     }
     case GET_ERROR: {
       return { ...state, isLoading: false, error: action.payload };
-      break;
     }
     default: {
       return {
