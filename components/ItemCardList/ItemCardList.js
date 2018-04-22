@@ -17,8 +17,8 @@ const masonryOptions = {
 
 const ItemCardList = props => {
   return (
-    <Masonry
-      elementType={"ul"}
+    <Masonry 
+    elementType={"ul"}
       options={masonryOptions}
       disableImagesLoaded={false}
       updateOnEachImageLoad={true}

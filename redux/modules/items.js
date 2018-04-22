@@ -59,30 +59,31 @@ dispatch(get_is_loading());
 Promise.all(urls.map(url => fetch(url)
 .then(resp => resp.json())))
 .then(responses => dispatch(get_items(combineItemsAndUsers(responses))))
-.catch(error=>dispatch(get_error(error)));
+.catch(error => dispatch(get_error(error)));
 };
-
-
-
 export default (state = initialState, action) => {
   switch (action.type) {
-    case GET_IS_LOADING:{
-      return {...state,isLoading:true,error:""};
+    case GET_IS_LOADING: {
+      return { ...state, isLoading: true, error: '' };
       break;
     }
     case GET_ITEMS: {
       const items = action.payload;
-      return { ...state, items, isLoading:false, error:"" };
+      return { ...state, items, isLoading: false, error: '' };
       break;
     }
-    case GET_ITEM_FILTERS:{
-      let itemFilters = [...state.itemFilters];
-      if (!itemFilters.includes(action.payload)){
+    case GET_ITEM_FILTERS: {
+      const itemFilters = [...state.itemFilters];
+      if (!itemFilters.includes(action.payload)) {
         itemFilters.push(action.payload);
-      } else{
-        //do ur pop remove here
+      } else {
+        const index = itemFilters.indexOf(action.payload);
+        if (index >= 0) {
+          itemFilters.splice(index, 1);
+        }
+
       }
-      return {...state, itemFilters};
+      return { ...state, itemFilters };
       break;
     }
     case GET_ERROR:{
