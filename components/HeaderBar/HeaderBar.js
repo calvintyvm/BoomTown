@@ -47,7 +47,7 @@ class HeaderBar extends Component {
         className="Header"
         iconElementLeft={icon}
     >
-        { (window.location.pathname === ('/')) ? (<TagFilterField className="filterHeader"tags={tags} selectedFilter={this.props.items.itemFilters} />) : null }
+        { (window.location.pathname === ('/')) ? (<TagFilterField className="filterHeader"tags={tags} selectedFilter={this.props.items.stateCopy} />) : null }
         <div>
             <RaisedButton primary className="profileButton" label="My Profile" />
             <RaisedButton secondary label="Logout" />

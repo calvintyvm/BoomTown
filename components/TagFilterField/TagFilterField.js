@@ -17,7 +17,7 @@ const TagFilterField = ({ tags, dispatch, selectedFilter }) => {
                     key={index}
                     value={tag}
                     primaryText={tag}
-                    checked={selectedFilter.indexOf(tag) >= 0}
+                    checked={selectedFilter && selectedFilter.indexOf(tag) >= 0}
                 />
         ))}
         </SelectField>

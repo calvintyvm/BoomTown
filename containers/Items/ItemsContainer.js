@@ -11,9 +11,9 @@ class ItemsContainer extends Component {
   }
 
   filterItems = itemsData => {
-    if (itemsData.itemFilters.length > 0) {
+    if (itemsData.stateCopy.length > 0) {
       const filteredItems = itemsData.items.filter(item => item.tags.filter(tag =>
-        itemsData.itemFilters.find(filter => filter === tag)).length);
+        itemsData.stateCopy.find(filter => filter === tag)).length);
       return filteredItems;
     }
     return itemsData.items;
