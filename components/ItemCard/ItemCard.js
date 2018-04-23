@@ -45,7 +45,7 @@ const ItemCard = props => {
                   subtitle={item.tags.map((item, index) => <span key={index}>{(index ? ', ' : '') + item}</span>)}
               />
               <CardText>{item.description}</CardText>
-              <RaisedButton label="Borrow" style={style} />
+              <RaisedButton label="Borrow" style={style} secondary={true} />
           </Card>
       </div>
   );

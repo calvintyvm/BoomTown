@@ -8,7 +8,6 @@ import logo from '../../images/boomtown-logo.svg';
 import './styles.css';
 import TagFilterField from '../TagFilterField';
 import { fetchItemsFromUrl } from '../../redux/modules/items';
-import { Route, Switch, Router } from 'react-router-dom';
 
 
 const icon = (
@@ -16,11 +15,6 @@ const icon = (
         <img src={logo} alt="logo" />
     </Link>
 );
-
-const logout = {
-  backgroundColor:"black",
-  color:"white",
-}
 
 class HeaderBar extends Component {
   componentDidMount() {
@@ -52,13 +46,11 @@ class HeaderBar extends Component {
     return (<AppBar
         className="Header"
         iconElementLeft={icon}
-    >  
-        {/* {newest()} */}
-        {/* {newUrl(currentUrl)} */}
+    >
         { (window.location.pathname === ('/')) ? (<TagFilterField className="filterHeader"tags={tags} selectedFilter={this.props.items.itemFilters} />) : null }
         <div>
-            <RaisedButton primary={true} className="profileButton" label="My Profile" />
-            <RaisedButton secondary={true} label="Logout" />
+            <RaisedButton primary className="profileButton" label="My Profile" />
+            <RaisedButton secondary label="Logout" />
         </div> </AppBar>);
 }
 }

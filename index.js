@@ -9,9 +9,7 @@ import muiTheme from './config/theme';
 import Layout from './components/Layout';
 import Routes from './Routes';
 import store from './redux/store';
-// console.log(Store.disp);
 
-// console.log(Store.dispatch(get_name_count()));
 const Boomtown = () => (
     <MuiThemeProvider muiTheme={muiTheme}>
         <Provider store={store}>

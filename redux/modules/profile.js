@@ -42,7 +42,6 @@ export const fetchProfileFromUrl = (userid) => dispatch => {
     };
 
 dispatch(get_is_loading());
-// console.log("hello")
 Promise.all(urls.map(url => fetch(url)
 .then(resp => resp.json())))
 .then(responses => dispatch(get_profile(filterProfile(combineItemsAndUsers(responses), userid))))

@@ -43,7 +43,6 @@ const Profile = props => {
             }
                   />
               </div>
-              {/* </Link> */}
           </Card>
       </div>
   );

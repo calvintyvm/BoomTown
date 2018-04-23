@@ -30,9 +30,11 @@ class ProfileContainer extends Component {
 }
 
 ProfileContainer.propTypes = {
+  match: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
   profile: PropTypes.shape({
     profile: PropTypes.array,
-    dispatch: PropTypes.func
+    isLoading: PropTypes.boolean
   }).isRequired
 };
 
