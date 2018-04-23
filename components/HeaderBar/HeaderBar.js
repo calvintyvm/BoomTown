@@ -10,12 +10,18 @@ import TagFilterField from '../TagFilterField';
 import { fetchItemsFromUrl } from '../../redux/modules/items';
 import { Route, Switch, Router } from 'react-router-dom';
 
-const currentUrl = window.location.href;
+
 const icon = (
     <Link to="/">
         <img src={logo} alt="logo" />
     </Link>
 );
+
+const logout = {
+  backgroundColor:"black",
+  color:"white",
+}
+
 class HeaderBar extends Component {
   componentDidMount() {
     const urls = ['http://localhost:3000/items", "http:://localhost:3000/users'];
@@ -49,10 +55,10 @@ class HeaderBar extends Component {
     >  
         {/* {newest()} */}
         {/* {newUrl(currentUrl)} */}
-        { !window.location.href.includes('profile') ? (<TagFilterField tags={tags} selectedFilter={this.props.items.itemFilters} />) : null }
+        { (window.location.pathname === ('/')) ? (<TagFilterField className="filterHeader"tags={tags} selectedFilter={this.props.items.itemFilters} />) : null }
         <div>
-            <RaisedButton className="profileButton" label="My Profile" />
-            <RaisedButton className="logoutButton" label="Logout" />
+            <RaisedButton primary={true} className="profileButton" label="My Profile" />
+            <RaisedButton secondary={true} label="Logout" />
         </div> </AppBar>);
 }
 }

@@ -8,9 +8,7 @@
     margin-left:1rem;
 }
 .profileButton{
-    background-color:#00BCD4 !important;
-    color:white !important;
-    /* height:2.5rem; */
+  
     margin-top:12px;
     height:2.2rem;
     margin-right:2rem;
@@ -33,5 +31,12 @@ align-items:center;
 } */
 .dropDown{
     width:10rem;
+
+}
+
+.headerFilter{
+    left:8%;
+    margin-top:8px;
+    position: absolute !important;
 
 }
