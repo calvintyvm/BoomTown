@@ -9,7 +9,6 @@ const Layout = ({ children }) => (
     <div className="appContentWrapper">
         <div className="appHeader">
             <HeaderBar />
-       
 
         </div>
         <div className="appContent">

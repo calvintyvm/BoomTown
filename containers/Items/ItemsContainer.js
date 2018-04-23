@@ -46,6 +46,7 @@ export default connect(state => ({
   }))(ItemsContainer);
 
   ItemsContainer.propTypes = {
+    dispatch: PropTypes.func.isRequired,
     itemsData: PropTypes.shape({
       isLoading: PropTypes.bool,
       items: PropTypes.array,
