@@ -63,8 +63,6 @@ export default connect(state => ({
     dispatch: PropTypes.func.isRequired,
     items: PropTypes.shape({
       items: PropTypes.array,
-      isLoading: PropTypes.bool,
       itemFilters: PropTypes.array,
-      error: PropTypes.string
     }).isRequired
   };

@@ -42,22 +42,18 @@ const ItemCard = props => {
               </Link>
               <CardTitle
                   title="Red Academy"
-                  subtitle={item.tags.map((item, index) => <span key={index}>{(index ? ', ' : '') + item}</span>)}
+                  subtitle={item.tags.map((subtitleItem, index) => <span key={index}>{(index ? ', ' : '') + subtitleItem}</span>)}
               />
               <CardText>{item.description}</CardText>
-              <RaisedButton label="Borrow" style={style} secondary={true} />
+              <RaisedButton label="Borrow" style={style} secondary />
           </Card>
       </div>
   );
 };
 
 ItemCard.propTypes = {
-  itemsData: PropTypes.shape({
-    items: PropTypes.array,
-    isLoading: PropTypes.bool,
-    itemFilters: PropTypes.array,
-    error: PropTypes.string
-  }).isRequired
+  itemsData:PropTypes.object.isRequired,
+
 };
 
 export default ItemCard;

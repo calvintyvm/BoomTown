@@ -2,22 +2,22 @@ const GET_ITEMS = 'GET_ITEMS';
 const GET_IS_LOADING = 'GET_IS_LOADING';
 const GET_ERROR = 'GET_ERROR';
 const GET_ITEM_FILTERS = 'GET_ITEM_FILTERS';
-export const get_items = (items) => ({
+export const getItems = (items) => ({
   type: GET_ITEMS,
   payload: items
 });
 
-export const get_is_loading = () => ({
+export const getIsLoading = () => ({
   type: GET_IS_LOADING,
 
 });
 
-export const get_error = (isError) => ({
+export const getError = (isError) => ({
   type: GET_ERROR,
   payload: isError
 });
 
-export const get_item_filters = (itemFilters) => ({
+export const getItemFilters = (itemFilters) => ({
   type: GET_ITEM_FILTERS,
   payload: itemFilters
 });
@@ -45,11 +45,11 @@ return itemsAndUsers[0];
 };
 
  // we use functions when we need to
-dispatch(get_is_loading());
+dispatch(getIsLoading());
 Promise.all(urls.map(url => fetch(url)
 .then(resp => resp.json())))
-.then(responses => dispatch(get_items(combineItemsAndUsers(responses))))
-.catch(error => dispatch(get_error(error)));
+.then(responses => dispatch(getItems(combineItemsAndUsers(responses))))
+.catch(error => dispatch(getError(error)));
 };
 export default (state = initialState, action) => {
   switch (action.type) {

@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import { get_item_filters } from '../../redux/modules/items';
-// import {get_item_filters} from
+import { getItemFilters } from '../../redux/modules/items';
 
 
 const TagFilterField = ({ tags, dispatch, selectedFilter }) => {
     function handleFilter(value) {
-        dispatch(get_item_filters(value));
+        dispatch(getItemFilters(value));
     }
     return (
         <SelectField className="headerFilter" multiple hintText="Filter By Tag" onChange={(event, index, value) => handleFilter(value[0])}>

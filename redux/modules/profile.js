@@ -2,16 +2,16 @@ const GET_PROFILE = 'GET_PROFILE';
 const GET_IS_LOADING = 'GET_IS_LOADING';
 const GET_ERROR = 'GET_ERROR';
 
-export const get_profile = profile => ({
+export const getProfile = profile => ({
     type: GET_PROFILE,
     payload: profile
 });
 
-export const get_is_loading = () => ({
+export const getIsLoading = () => ({
   type: GET_IS_LOADING,
 });
 
-export const get_error = (isError) => ({
+export const getError = (isError) => ({
   type: GET_ERROR,
   payload: isError
 });
@@ -41,11 +41,11 @@ export const fetchProfileFromUrl = (userid) => dispatch => {
     return itemsAndUsers[0];
     };
 
-dispatch(get_is_loading());
+dispatch(getIsLoading());
 Promise.all(urls.map(url => fetch(url)
 .then(resp => resp.json())))
-.then(responses => dispatch(get_profile(filterProfile(combineItemsAndUsers(responses), userid))))
-.catch(error => dispatch(get_error(error)));
+.then(responses => dispatch(getProfile(filterProfile(combineItemsAndUsers(responses), userid))))
+.catch(error => dispatch(getError(error)));
 };
 
 
