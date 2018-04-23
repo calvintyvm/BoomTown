@@ -9,9 +9,10 @@ const Items = props => (
     </div>
   );
 
+
 export default Items;
 
 Items.propTypes = {
-  itemsData: PropTypes.arrayOf(PropTypes.object).isRequired
+  itemsData: PropTypes.array.isRequired
 };
 

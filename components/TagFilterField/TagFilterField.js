@@ -12,7 +12,7 @@ const TagFilterField = ({ tags, dispatch, selectedFilter }) => {
     }
     return (
         <SelectField className="headerFilter" multiple hintText="Filter By Tag" onChange={(event, index, value) => handleFilter(value[0])}>
-            {tags && tags.map((tag, index) => (
+            { tags.map((tag, index) => (
                 <MenuItem
                     key={index}
                     value={tag}
@@ -24,8 +24,8 @@ const TagFilterField = ({ tags, dispatch, selectedFilter }) => {
     );
 };
 TagFilterField.propTypes = {
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    selectedFilter: PropTypes.arrayOf(PropTypes.string).isRequired,
+    tags: PropTypes.array.isRequired,
+    selectedFilter: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired
 };
 

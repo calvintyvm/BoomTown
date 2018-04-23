@@ -5,12 +5,6 @@ import CircularProgress from 'material-ui/CircularProgress';
 import Items from './Items';
 import './styles.css';
 import { fetchItemsFromUrl } from '../../redux/modules/items';
-// import ItemCard from "../../components/ItemCardList";
-
-// const userUrl = "http://localhost:3000/users";
-// const itemsUrl = "http://localhost:3000/items";
-
-
 class ItemsContainer extends Component {
   componentDidMount() {
     this.props.dispatch(fetchItemsFromUrl());

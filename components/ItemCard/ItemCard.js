@@ -52,7 +52,7 @@ const ItemCard = props => {
 };
 
 ItemCard.propTypes = {
-  itemsData:PropTypes.object.isRequired,
+  itemsData: PropTypes.object.isRequired,
 
 };
 

@@ -51,7 +51,7 @@ const Profile = props => {
 // export default Profile;
 
 Profile.propTypes = {
-profile: PropTypes.arrayOf(PropTypes.object).isRequired,
+profile: PropTypes.array.isRequired,
 };
 
 
