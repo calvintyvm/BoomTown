@@ -61,16 +61,16 @@ export default (state = initialState, action) => {
       return { ...state, items, isLoading: false, error: '' };
     }
     case GET_ITEM_FILTERS: {
-      const stateCopy = [...state.stateCopy];
-      if (!stateCopy.includes(action.payload)) {
-        stateCopy.push(action.payload);
+      const itemFilters = [...state.itemFilters];
+      if (!itemFilters.includes(action.payload)) {
+        itemFilters.push(action.payload);
       } else {
-        const index = stateCopy.indexOf(action.payload);
+        const index = itemFilters.indexOf(action.payload);
         if (index >= 0) {
-          stateCopy.splice(index, 1);
+          itemFilters.splice(index, 1);
         }
       }
-      return { ...state, stateCopy };
+      return { ...state, itemFilters };
     }
     case GET_ERROR: {
       return { ...state, isLoading: false, error: action.payload };
