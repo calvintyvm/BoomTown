@@ -31,7 +31,8 @@ const ItemCard = props => {
               <CardMedia>
                   <img src={item.imageurl} alt="card" />
               </CardMedia>
-              <Link to={`/profile/${item.itemowner.id}`}>
+              {(window.location.pathname === ('/')) ?
+              (<Link to={`/profile/${item.itemowner.id}`}>
                   <CardHeader
                       title={item.itemowner.fullname}
                       subtitle={moment(item.created, 'YYYYMMDD').fromNow()}
@@ -39,7 +40,13 @@ const ItemCard = props => {
                           <Gravatar email={item.itemowner.email} style={styleAvatar} />
             }
                   />
-              </Link>
+              </Link>) : <CardHeader
+                  title={item.itemowner.fullname}
+                  subtitle={moment(item.created, 'YYYYMMDD').fromNow()}
+                  avatar={
+                      <Gravatar email={item.itemowner.email} style={styleAvatar} />
+            }
+              />}
               <CardTitle
                   title="Red Academy"
                   subtitle={item.tags.map((subtitleItem, index) => <span key={index}>{(index ? ', ' : '') + subtitleItem}</span>)}
