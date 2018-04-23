@@ -24,8 +24,8 @@ const TagFilterField = ({ tags, dispatch, selectedFilter }) => {
     );
 };
 TagFilterField.propTypes = {
-    tags: PropTypes.array.isRequired,
-    selectedFilter: PropTypes.array.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selectedFilter: PropTypes.arrayOf(PropTypes.string).isRequired,
     dispatch: PropTypes.func.isRequired
 };
 
